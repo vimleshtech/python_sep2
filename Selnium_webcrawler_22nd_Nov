@@ -1,0 +1,30 @@
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+
+# We create WebDriver
+browser = webdriver.Chrome(executable_path=r'C:\Users\Deepika\Downloads\chromedriver_win32\chromedriver.exe')
+# Navigate to URL
+browser.get("https://beta.bseindia.com/")
+
+#//*[@id="loadhtml"]/table/tbody/tr[1]/td/table/tbody[2]/tr[2]/td[2]
+
+browser.implicitly_wait(10)
+            
+for r in range(2,5):
+
+    for c in range(1,9):
+        try :
+            #print('//*[@id="loadhtml"]/table/tbody/tr[1]/td/table/tbody[2]/tr['+str(r)+']/td['+str(c)+']')
+            
+            s = browser.find_element_by_xpath('//*[@id="loadhtml"]/table/tbody/tr[1]/td/table/tbody[2]/tr['+str(r)+']/td['+str(c)+']').text
+
+            print(s,end='\t')    
+        except:
+            print('error')
+    print()
+
+            
+#//*[@id="loadhtml"]/table/tbody/tr[1]/td/table/tbody[2]/tr[2]/td[3]
+#//*[@id="loadhtml"]/table/tbody/tr[1]/td/table/tbody[2]/tr[3]/td[2]
+
+        
